@@ -158,12 +158,12 @@ var clear = ()=>{
 
 var showMainActivity = ()=>{
     clear();
-    $("#mainActivity").fadeIn();
+    $("#mainActivity").show();
 };
 
 var showAboutApp = ()=>{
     clear();
-    $("#aboutAppActivity").fadeIn();
+    $("#aboutAppActivity").show();
 };
 
 /*
