@@ -2,7 +2,7 @@
     "name": "Project Numero",
     "short_name": "Project Numero",
     "lang": "en-US",
-    "start_url": "/project-numero",
+    "start_url": "/",
     "scope": "/project-numero",
     "display": "standalone",
     "theme_color": "#ff8f00",
