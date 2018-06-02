@@ -1,4 +1,4 @@
-const _$dbGetNetworks = async ()=>{
+const _$dbGetNetworks = ()=>{
     var _fetchOnline = ()=>{
         $.ajax({
             type:'GET',
@@ -32,7 +32,7 @@ const _$dbGetNetworks = async ()=>{
     }
 };
 
-const _$dbGetNumbers = async ()=>{
+const _$dbGetNumbers = ()=>{
     var _fetchOnline = ()=>{
         $.ajax({
             type:'GET',
@@ -66,7 +66,6 @@ const _$dbGetNumbers = async ()=>{
                     ar.push(d);
                 });
                 localStorage.setItem("numbers",JSON.stringify(ar));
-                showNumbers();
             }
         }).fail((e)=>{
            console.log("Failed to get numbers");
