@@ -80,6 +80,7 @@ const _$dbGetNumbers = async ()=>{
 
 var _$dbInit = ()=>{
     if(!localStorage.getItem("networks")){
+        M.toast({html:"Getting networks and prefixes from database", durationLength:3000});
         _$dbGetNetworks();
     }
     if(!localStorage.getItem("numbers")){
@@ -150,6 +151,17 @@ var showAboutApp = ()=>{
     $("#aboutAppActivity").fadeIn();
 };
 
+/*
+    splash
+    Splashscreen handler
+ */
+function splash(param){
+    var time = param;
+    setTimeout(function(){
+        $("#splashscreen").fadeOut();
+    },time);
+}
+
 $(document).ready(()=>{
     clear();
 
@@ -158,6 +170,8 @@ $(document).ready(()=>{
     showNumbers();
 
     showMainActivity();
+
+    splash(1000);
 });
 
 $("#search").keyup(()=>{
