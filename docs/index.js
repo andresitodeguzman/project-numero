@@ -66,6 +66,7 @@ const _$dbGetNumbers = async ()=>{
                     ar.push(d);
                 });
                 localStorage.setItem("numbers",JSON.stringify(ar));
+                showNumbers();
             }
         }).fail((e)=>{
            console.log("Failed to get numbers");
