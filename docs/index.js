@@ -10,7 +10,17 @@ const _$dbGetNetworks = async ()=>{
             success: result=>{
                 var res = result.values;
                 res.splice(0,1);
-                localStorage.setItem("networks",JSON.stringify(res));
+                var ar = [];
+                $.each(res, (index,value)=>{
+                    var i = value[0];
+                    var n = value[1];
+                    var d = {
+                        id:i,
+                        name:n
+                    };
+                    ar.push(d);
+                });
+                localStorage.setItem("networks",JSON.stringify(ar));
             }
         }).fail((e)=>{
            console.log("Failed to get networks");
@@ -34,7 +44,28 @@ const _$dbGetNumbers = async ()=>{
             success: result=>{
                 var res = result.values;
                 res.splice(0,1);
-                localStorage.setItem("numbers",JSON.stringify(res));
+                var ar = [];
+
+                function getNetworkName(i){
+                    var nt = JSON.parse(localStorage.getItem("networks"));
+                    var r = _.find(nt,{id:i});
+                    return r['name'];
+                };
+
+                $.each(res,(index,value)=>{
+                    var i = value[0];
+                    var p = value[1];
+                    var nid = value[2];
+                    var nn = getNetworkName(nid);
+                    var d = {
+                        id:i,
+                        prefix:p,
+                        network_id:nid,
+                        network_name:nn
+                    };
+                    ar.push(d);
+                });
+                localStorage.setItem("numbers",JSON.stringify(ar));
             }
         }).fail((e)=>{
            console.log("Failed to get numbers");
@@ -64,42 +95,72 @@ var _$networks = ()=>{
     }
 }
 
-var _$networkSearchById = (qid)=>{
-    var networks = _$networks();
-    _.forEach(networks,(val)=>{
-        var id = val[0];
-        if(id != qid){
-
-        } else {
-            return val;
-        }
-    });
-
-    return r;
-};
-
 var _$numbers = ()=>{
     if(localStorage.getItem("numbers")){
-        var numbers = JSON.parse(localStorage.getItem("numbers"));
-        var numArr = [];
-        $.each(numbers,(index,number)=>{
-            var net_id = number[2];
-
-        });
+        return numbers = JSON.parse(localStorage.getItem("numbers"));
     } else {
         return {};
     }
 }
 
-var _$filterNumbers = (query)=>{
-    if(query){
+var showNumbers = (q)=>{
+    var numbers = _$numbers();
 
-    } else {
-
+    if(q){
+        if($.isNumeric(q)){
+            var numbers = _.filter(numbers,function(obj) {
+                if(obj.prefix.match(q)) return obj;
+            });
+        } else {
+            var numbers = _.filter(numbers,function(obj) {
+                if(obj.network_name.match(q)) return obj;
+            });
+        }
     }
-}
+
+    $("#numbersList").html("");
+    $.each(numbers,(index,num)=>{
+        var i = num.id;
+        var p = num.prefix;
+        var ni = num.network_id;
+        var nn = num.network_name;
+
+        var tmpl = `
+            <tr>
+                <td>${p}</td>
+                <td>${nn}</td>
+            </tr>
+        `;
+
+        $("#numbersList").append(tmpl);
+    });
+};
+
+var clear = ()=>{
+    $(".activity").hide();
+};
+
+var showMainActivity = ()=>{
+    clear();
+    $("#mainActivity").fadeIn();
+};
+
+var showAboutApp = ()=>{
+    clear();
+    $("#aboutAppActivity").fadeIn();
+};
 
 $(document).ready(()=>{
+    clear();
+
     $('.modal').modal();
     _$dbInit();
+    showNumbers();
+
+    showMainActivity();
+});
+
+$("#search").keyup(()=>{
+ var q = $("#search").val();
+ showNumbers(q);
 });

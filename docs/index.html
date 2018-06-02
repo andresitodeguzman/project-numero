@@ -8,35 +8,56 @@
     <!--CSS-->
     <link rel="stylesheet" href="assets/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="assets/fonts/iconfont/material-icons.css">
+    <link rel="stylesheet" href="assets/css/bottom_tabs.min.css">
     <!--JS-->
-      <script src="assets/js/lodash.min.js"></script>
+    <script src="assets/js/lodash.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/materialize/js/materialize.min.js"></script>
+    <script src="assets/js/bottom_tabs.min.js"></script>
     <style>
         .title { font-size: 15pt; }
     </style>
 </head>
-<body class="grey lighten-4">
+<body class="white">
 
-    <div class="activity" id="mainActivity">
-        <div class="navbar-fixed" id="navbar">
-            <nav class="amber darken-3">
-                <div class="nav-wrapper">
-                    <form>
-                        <div class="input-field">
-                            <input id="search" type="search" required>
-                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                            <i class="material-icons">close</i>
-                        </div>
-                    </form>
-                </div>
-            </nav>
-        </div>
-        <div class="container">
-            
-        </div>
+<div class="activity" id="mainActivity">
+    <div class="navbar-fixed" id="navbar">
+        <nav class="amber darken-3">
+            <div class="nav-wrapper">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons" onclick="setNumbers()">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
     </div>
 
+    <table class="responsive centered striped">
+        <thead>
+            <tr>
+                <th class="amber-text text-darken-4">Prefix</th>
+                <th class="amber-text text-darken-4">Network</th>
+            </tr>
+        </thead>
+        <tbody id="numbersList"></tbody>
+    </table><br><br><br><br>
+</div>
+
+<div class="activity" id="aboutAppActivity">
+    <nav class="amber darken-3">
+        <div class"nav-wrapper">
+            <a href="#!" class="title" style="padding-left:20px">Project Numero</a>
+        </div>
+    </nav>
+</div>
+
+<ul class="bottom_tabs tabs tabs-transparent grey lighten-2 z-depth-4">
+    <li class="tab col s3"><a href="#!" class="amber-text text-darken-4" onclick="showMainActivity()">Home</a></li>
+    <li class="tab col s3"><a href="#!" class="amber-text text-darken-4" onclick="showAboutApp()">About App</a></li>
+</ul>
 </body>
 </html>
 <script src="index.js"></script>
