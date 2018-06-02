@@ -1,4 +1,17 @@
-const _$dbGetNetworks = ()=>{
+$(document).ready(()=>{
+    clear();
+
+    $('.modal').modal();
+    _$dbInit();
+    showNumbers();
+
+    showMainActivity();
+
+    splash(1000);
+});
+
+
+const _$dbGetNetworks = async ()=>{
     var _fetchOnline = ()=>{
         $.ajax({
             type:'GET',
@@ -32,7 +45,7 @@ const _$dbGetNetworks = ()=>{
     }
 };
 
-const _$dbGetNumbers = ()=>{
+const _$dbGetNumbers = async ()=>{
     var _fetchOnline = ()=>{
         $.ajax({
             type:'GET',
@@ -66,6 +79,8 @@ const _$dbGetNumbers = ()=>{
                     ar.push(d);
                 });
                 localStorage.setItem("numbers",JSON.stringify(ar));
+
+                showNumbers();
             }
         }).fail((e)=>{
            console.log("Failed to get numbers");
@@ -161,18 +176,6 @@ function splash(param){
         $("#splashscreen").fadeOut();
     },time);
 }
-
-$(document).ready(()=>{
-    clear();
-
-    $('.modal').modal();
-    _$dbInit();
-    showNumbers();
-
-    showMainActivity();
-
-    splash(1000);
-});
 
 $("#search").keyup(()=>{
  var q = $("#search").val();
