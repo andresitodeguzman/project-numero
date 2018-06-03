@@ -9,7 +9,7 @@
     <title>Project Numero</title>
     <script type="text/javascript">
         if('serviceWorker' in navigator){
-            navigator.serviceWorker.register('serviceworker.js',{scope:'/'}).then(reg=>{
+            navigator.serviceWorker.register('serviceworker.js',{scope:'/project-numero'}).then(reg=>{
                 console.log('SW Log: Registration was Successful');
             }).catch(err=>{
                 var error = err;
