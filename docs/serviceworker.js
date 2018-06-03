@@ -3,27 +3,27 @@
 let cn = '1.01';
 let cacheWhiteList = ['1.01'];
 let assetsList = [
-    'index.html',
-    'index.js',
-    'assets/fonts/iconfont/material-icons.css',
-    'assets/fonts/iconfont/MaterialIcons-Regular.eot',
-    'assets/fonts/iconfont/MaterialIcons-Regular.ijmap',
-    'assets/fonts/iconfont/MaterialIcons-Regular.svg',
-    'assets/fonts/iconfont/MaterialIcons-Regular.ttf',
-    'assets/fonts/iconfont/MaterialIcons-Regular.woff',
-    'assets/fonts/iconfont/MaterialIcons-Regular.woff2',
-    'assets/images/icon/128.png',
-    'assets/images/icon/144.png',
-    'assets/images/icon/152.png',
-    'assets/images/icon/192.png',
-    'assets/images/icon/384.png',
-    'assets/images/icon/512.png',
-    'assets/images/icon/72.png',
-    'assets/images/icon/96.png',
-    'assets/js/jquery.min.js',
-    'assets/js/lodash.min.js',
-    'assets/materialize/css/materialize.min.css',
-    'assets/materialize/js/materialize.min.js'
+    '/project-numero/index.html',
+    '/project-numero/index.js',
+    '/project-numero/assets/fonts/iconfont/material-icons.css',
+    '/project-numero/assets/fonts/iconfont/MaterialIcons-Regular.eot',
+    '/project-numero/assets/fonts/iconfont/MaterialIcons-Regular.ijmap',
+    '/project-numero/assets/fonts/iconfont/MaterialIcons-Regular.svg',
+    '/project-numero/assets/fonts/iconfont/MaterialIcons-Regular.ttf',
+    '/project-numero/assets/fonts/iconfont/MaterialIcons-Regular.woff',
+    '/project-numero/assets/fonts/iconfont/MaterialIcons-Regular.woff2',
+    '/project-numero/assets/images/icon/128.png',
+    '/project-numero/assets/images/icon/144.png',
+    '/project-numero/assets/images/icon/152.png',
+    '/project-numero/assets/images/icon/192.png',
+    '/project-numero/assets/images/icon/384.png',
+    '/project-numero/assets/images/icon/512.png',
+    '/project-numero/assets/images/icon/72.png',
+    '/project-numero/assets/images/icon/96.png',
+    '/project-numero/assets/js/jquery.min.js',
+    '/project-numero/assets/js/lodash.min.js',
+    '/project-numero/assets/materialize/css/materialize.min.css',
+    '/project-numero/assets/materialize/js/materialize.min.js'
 ];
 
 // Install Event
